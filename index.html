@@ -67,6 +67,7 @@
             font-size: 1.2rem;
             font-weight: 600;
             color: var(--text-primary);
+            margin-right: 2rem;
         }
 
         .nav-right {
@@ -122,6 +123,18 @@
             display: flex;
             align-items: center;
             padding-top: 80px;
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 3rem;
+            text-align: left;
+        }
+
+        .hero-text {
+            flex: 1;
         }
 
         .hero-content h1 {
@@ -228,19 +241,29 @@
             margin-bottom: 1rem;
         }
 
+        .skill-tag {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            padding: 0.5rem 1.1rem;
+            border-radius: 24px;
+            font-size: 1.1rem;
+            border: 1px solid var(--border);
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .skill-tag i {
+            font-size: 2rem;
+            min-width: 2rem;
+        }
+
         .skill-tags {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-
-        .skill-tag {
-            background: var(--bg-secondary);
-            color: var(--text-primary);
-            padding: 0.4rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            border: 1px solid var(--border);
+            gap: 1rem;
         }
 
         /* Projects Section */
@@ -281,19 +304,26 @@
             flex-wrap: wrap;
         }
 
-        .project-links a {
-            color: var(--text-primary);
-            text-decoration: none;
-            font-size: 0.9rem;
-            padding: 0.5rem 1rem;
-            border: 1px solid var(--border);
-            border-radius: 4px;
-            transition: background 0.3s ease;
-        }
+.project-links a {
+    display: inline-block;
+    background: var(--accent);
+    color: var(--bg-primary);
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 0.5rem 1.2rem;
+    border-radius: 6px;
+    border: 1px solid var(--accent);
+    transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+    margin-top: 1rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
 
-        .project-links a:hover {
-            background: var(--bg-primary);
-        }
+.project-links a:hover {
+    background: var(--bg-primary);
+    color: var(--accent);
+    border: 1px solid var(--accent);
+}
 
         /* Experience Section */
         .experience-list {
@@ -371,6 +401,17 @@
                 padding: 1rem 0;
             }
 
+    .floating-navbar {
+        left: 50%;
+        top: 12px;
+        padding: 0.5rem 1rem;
+        border-radius: 32px;
+        width: 94vw;           /* Make navbar a bit narrower */
+        min-width: 0;
+        max-width: 98vw;
+        box-sizing: border-box;
+    }
+
             .nav-links.active {
                 display: flex;
             }
@@ -385,6 +426,7 @@
 
             .nav-right {
                 gap: 1rem;
+                margin-right: 0.5rem; 
             }
 
             .hero {
@@ -401,6 +443,10 @@
                 gap: 2rem;
             }
 
+            .logo {
+                margin-left: 0.5rem;
+            }
+
             .skills-grid {
                 grid-template-columns: 1fr;
             }
@@ -411,11 +457,30 @@
 
             .cta-buttons {
                 flex-direction: column;
-                align-items: flex-start;
+                align-items: center;
+                width: 100%;
             }
 
             .container {
                 padding: 0 16px;
+            }
+
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-dp {
+                order: -1;
+                margin-bottom: 1.5rem;
+                margin-left: auto;
+                margin-right: auto;
+                width: 200px;
+                height: 200px;
+            }
+
+            .hero-text {
+                width: 100%;
             }
         }
 
@@ -431,6 +496,28 @@
             }
 
             .social-links {
+                gap: 1rem;
+            }
+
+            .hero-dp {
+                order: -1;
+                margin-bottom: 1.5rem;
+                margin-left: auto;
+                margin-right: auto;
+                width: 180px !important;
+                height: 180px !important;
+            }
+        
+            .skill-tag {
+                font-size: 0.95rem;
+                padding: 0.35rem 0.7rem;
+                border-radius: 18px;
+            }
+            .skill-tag i {
+                font-size: 1.2rem;
+                min-width: 1.2rem;
+            }
+            .skills-grid {
                 gap: 1rem;
             }
         }
@@ -613,12 +700,146 @@
                 transform: translateY(-20px) scale(0.98);
             }
         }
+
+        .hero-dp {
+            width: 320px;
+            height: 320px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 3px solid var(--accent);
+            margin-bottom: 0;
+            margin-left: 0;
+            margin-right: 0;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            background: var(--bg-secondary);
+            transition: box-shadow 0.4s;
+        }
+        .hero-dp:hover {
+            box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+        }
+
+        /* Floating Navbar */
+        .floating-navbar {
+            position: fixed;
+            top: 24px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: max-content;
+            min-width: 320px;
+            max-width: 90vw;
+            padding: 0.5rem 2.5rem;
+            border-radius: 999px;
+            background: rgba(30, 30, 30, 0.45);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
+            backdrop-filter: blur(18px) saturate(180%);
+            -webkit-backdrop-filter: blur(18px) saturate(180%);
+            border: 1.5px solid rgba(255,255,255,0.18);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: background 0.4s, box-shadow 0.4s;
+        }
+
+        [data-theme="light"] .floating-navbar {
+            background: rgba(255,255,255,0.7);
+            border: 1.5px solid rgba(0,0,0,0.08);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.08);
+        }
+
+        @media (max-width: 900px) {
+            .floating-navbar {
+                padding: 0.5rem 1rem;
+                min-width: 0;
+                max-width: 98vw;
+            }
+        }
+        @media (max-width: 768px) {
+            .floating-navbar {
+                left: 50%;
+                top: 12px;
+                padding: 0.5rem 0.5rem;
+                border-radius: 32px;
+                width: 98vw;
+                min-width: 0;
+            }
+        }
+
+.project-image {
+    width: 100%;
+    max-height: 220px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    border: 1px solid var(--border);
+    background: var(--bg-secondary);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+
+/* Add to your <style> tag for blog cards */
+.blogs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+.blog-card {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 2rem;
+    transition: transform 0.3s;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+}
+.blog-card:hover {
+    transform: translateY(-6px) scale(1.01);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.10);
+}
+.blog-card h3 {
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 1.2rem;
+    color: var(--text-primary);
+}
+
+.blog-link {
+    display: inline-block;
+    background: var(--accent);
+    color: var(--bg-primary);
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 0.5rem 1.2rem;
+    border-radius: 6px;
+    border: 1px solid var(--accent);
+    transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+    margin-top: 1rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+.blog-link:hover {
+    background: var(--bg-primary);
+    color: var(--accent);
+    border: 1px solid var(--accent);
+}
+
+.blog-image {
+    width: 100%;
+    max-height: 180px;
+    object-fit: cover;
+    border-radius: 6px;
+    margin-bottom: 1rem;
+    border: 1px solid var(--border);
+    background: var(--bg-secondary);
+}
     </style>
 </head>
 <body>
     <header>
-        <nav class="container">
-            <div class="logo">Anik Chand</div>
+        <nav class="floating-navbar container">
+            <div class="logo">AC</div>
             <div class="nav-right">
                 <ul class="nav-links" id="navLinks">
                     <li><a href="#home">Home</a></li>
@@ -638,13 +859,16 @@
         <section id="home" class="hero">
             <div class="container">
                 <div class="hero-content">
-                    <h1>Anik Chand</h1>
-                    <p class="subtitle">Computer Science Student & Developer</p>
-                    <p>Building innovative solutions with AI/ML and web technologies. Currently pursuing B.Tech in CSE with hands-on experience in software development.</p>
-                    <div class="cta-buttons">
-                        <a href="#projects" class="btn primary">View Work</a>
-                        <a href="#contact" class="btn">Contact</a>
+                    <div class="hero-text">
+                        <h1>Anik Chand</h1>
+                        <p class="subtitle">Computer Science Student & Developer</p>
+                        <p>Building innovative solutions with AI/ML and web technologies. Currently pursuing B.Tech in CSE with hands-on experience in software development.</p>
+                        <div class="cta-buttons">
+                            <a href="#projects" class="btn primary">View Work</a>
+                            <a href="#contact" class="btn">Contact</a>
+                        </div>
                     </div>
+                    <img src="dp.jpg" alt="Anik Chand" class="hero-dp">
                 </div>
             </div>
         </section>
@@ -675,83 +899,86 @@
             </div>
         </section>
 
-        <section id="skills" class="section">
-            <div class="container">
-                <h2 class="section-title">Skills</h2>
-                <div class="skills-grid">
-                    <div class="skill-category">
-                        <h3>Programming</h3>
-                        <div class="skill-tags">
-                            <i class="fab fa-python"></i>
-                            <i class="fab fa-java"></i>
-                            <i class="fas fa-code"></i>
-                            <i class="fas fa-database"></i>
-                            <i class="fa-brands fa-js"></i>
-                        </div>
-                    </div>
-                    <div class="skill-category">
-                        <h3>Libraries and Tools</h3>
-                        <div class="skill-tags">
-                            <i class="fas fa-chart-bar"></i>
-                            <i class="fas fa-table"></i>
-                            <i class="fa-solid fa-chart-line"></i>
-                            <span <i class="fa-solid fa-brain"></i>
-                            <i class="fa-solid fa-bolt"></i>
-                            <i class="fab fa-git-alt"></i>
-                            <i class="fab fa-github"></i>
-                        </div>
-                    </div>
-                    <div class="skill-category">
-                        <h3>Web Tech</h3>
-                        <div class="skill-tags">
-                            <i class="fab fa-html5"></i>
-                            <i class="fab fa-css3-alt"></i>
-                            <i class="fab fa-js"></i>
-                            <i class="fas fa-server"></i>
-                        </div>
-                    </div>
+<section id="skills" class="section">
+    <div class="container">
+        <h2 class="section-title">Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h3>Programming</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag"><i class="fab fa-python"></i> Python</span>
+                    <span class="skill-tag"><i class="fab fa-java"></i> Java</span>
+                    <span class="skill-tag"><i class="fas fa-code"></i> C++</span>
+                    <span class="skill-tag"><i class="fas fa-database"></i> SQL</span>
+                    <span class="skill-tag"><i class="fab fa-js"></i> JavaScript</span>
                 </div>
             </div>
-        </section>
+            <div class="skill-category">
+                <h3>Libraries and Tools</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag"><i class="fas fa-chart-bar"></i> Numpy</span>
+                    <span class="skill-tag"><i class="fas fa-table"></i> Pandas</span>
+                    <span class="skill-tag"><i class="fa-solid fa-chart-line"></i> Matplotlib</span>
+                    <span class="skill-tag"><i class="fa-solid fa-brain"></i> Scikit-learn</span>
+                    <span class="skill-tag"><i class="fab fa-git-alt"></i> Git</span>
+                    <span class="skill-tag"><i class="fab fa-github"></i> Github</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3>Web Tech</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag"><i class="fab fa-html5"></i> HTML</span>
+                    <span class="skill-tag"><i class="fab fa-css3-alt"></i> CSS</span>
+                    <span class="skill-tag"><i class="fab fa-js"></i> JS</span>
+                    <span class="skill-tag"><i class="fa-solid fa-bolt"></i> FastAPI</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
-        <section id="projects" class="section">
-            <div class="container">
-                <h2 class="section-title">Projects</h2>
-                <div class="projects-grid">
-                    <div class="project-card">
-                        <h3>Report-Connect</h3>
-                        <p>Secure, anonymous crime-reporting platform with AI-based hotspot prediction using Kernel Density Estimation.</p>
-                        <div class="project-links">
-                            <a href="https://github.com/anikchand461/Report-Connect.git" target="_blank">GitHub</a>
-                        </div>
-                    </div>
-                    <div class="project-card">
-                        <h3>BillVault</h3>
-                        <p>Digital bill management system with OCR auto-fill capabilities, user authentication, and admin dashboard.</p>
-                        <div class="project-links">
-                            <a href="https://billvault.pythonanywhere.com/accounts/login/" target="_blank">Demo</a>
-                            <a href="https://github.com/anikchand461/WarrantyManager" target="_blank">GitHub</a>
-                        </div>
-                    </div>
-                    <div class="project-card">
-                        <h3>SalaryAi</h3>
-                        <p>FastAPI web app for salary prediction using Polynomial Regression with clean frontend interface.</p>
-                        <div class="project-links">
-                            <a href="https://salaryai-production.up.railway.app" target="_blank">Demo</a>
-                            <a href="https://github.com/anikchand461/SalaryAi" target="_blank">GitHub</a>
-                        </div>
-                    </div>
-                    <div class="project-card">
-                        <h3>Quizly</h3>
-                        <p>AI-based quiz generator for instant MCQ practice. Lightweight, mobile-accessible web and APK app.</p>
-                        <div class="project-links">
-                            <a href="https://quizly-6oo5.onrender.com" target="_blank">Demo</a>
-                            <a href="https://github.com/anikchand461/quizly" target="_blank">GitHub</a>
-                        </div>
-                    </div>
+<section id="projects" class="section">
+    <div class="container">
+        <h2 class="section-title">Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <h3>Report-Connect</h3>
+                <img src="report_connect.jpg" alt="Report-Connect Preview" class="project-image">
+                <p>Secure, anonymous crime-reporting platform with AI-based hotspot prediction using Kernel Density Estimation.</p>
+                <div class="project-links">
+                    <a href="https://github.com/anikchand461/Report-Connect.git" target="_blank"><i class="fab fa-github"></i></a>
                 </div>
             </div>
-        </section>
+            <div class="project-card">
+                <h3>BillVault</h3>
+                <img src="bill_vault.jpg" alt="Report-Connect Preview" class="project-image">
+                <p>Digital bill management system with OCR auto-fill capabilities, user authentication, and admin dashboard.</p>
+                <div class="project-links">
+                    <a href="https://billvault.pythonanywhere.com/accounts/login/" target="_blank"><i class="fa-solid fa-link"></i></a>
+                    <a href="https://github.com/anikchand461/WarrantyManager" target="_blank"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+            <div class="project-card">
+                <h3>SalaryAi</h3>
+                <img src="salaryAI.jpg" alt="Report-Connect Preview" class="project-image">
+                <p>FastAPI web app for salary prediction using Polynomial Regression with clean frontend interface.</p>
+                <div class="project-links">
+                    <a href="https://salaryai-production.up.railway.app" target="_blank"><i class="fa-solid fa-link"></i></a>
+                    <a href="https://github.com/anikchand461/SalaryAi" target="_blank"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+            <div class="project-card">
+                <h3>Quizly</h3>
+                <img src="quizly.jpg" alt="Report-Connect Preview" class="project-image">
+                <p>AI-based quiz generator for instant MCQ practice. Lightweight, mobile-accessible web and APK app.</p>
+                <div class="project-links">
+                    <a href="https://quizly-6oo5.onrender.com" target="_blank"><i class="fa-solid fa-link"></i></a>
+                    <a href="https://github.com/anikchand461/quizly" target="_blank"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
         <section id="experience" class="section">
             <div class="container">
@@ -782,6 +1009,30 @@
         </section>
     </main>
 
+<!-- Replace your blogs section with this: -->
+<section id="blogs" class="section">
+    <div class="container">
+        <h2 class="section-title">Blogs</h2>
+        <div class="blogs-grid">
+            <div class="blog-card">
+                <img src="hangman.jpg" alt="Hangman Blog" class="blog-image">
+                <h3>Crafting Fun with Code: My Journey Building the Hangman Game</h3>
+                <a href="https://dev.to/anikchand461/crafting-fun-with-code-my-journey-building-the-hangman-game-11ih" target="_blank" class="blog-link">Read on DEV</a>
+            </div>
+            <div class="blog-card">
+                <img src="regression.jpg" alt="Regression Blog" class="blog-image">
+                <h3>Regression in ML Explained: The Ultimate Hands-On Guide</h3>
+                <a href="https://dev.to/anikchand461/regression-in-ml-explained-the-ultimate-hands-on-guide-484f" target="_blank" class="blog-link">Read on DEV</a>
+            </div>
+            <div class="blog-card">
+                <img src="titanic.jpg" alt="OneHotEncoder Blog" class="blog-image">
+                <h3>OneHotEncoder Shape Mismatch Mystery in Titanic Dataset: Solved!</h3>
+                <a href="https://dev.to/anikchand461/onehotencoder-shape-mismatch-mystery-in-titanic-dataset-solved-3n6" target="_blank" class="blog-link">Read on DEV</a>
+            </div>
+        </div>
+    </div>
+</section>
+
     <footer id="contact">
         <div class="container">
             <h2 class="section-title">Connect</h2>
@@ -789,6 +1040,7 @@
                 <a href="https://www.linkedin.com/in/anik-chand-3b14b12b6/" target="_blank">LinkedIn</a>
                 <a href="https://github.com/anikchand461" target="_blank">GitHub</a>
                 <a href="https://www.kaggle.com/anikchand" target="_blank">Kaggle</a>
+                <a href="https://codolio.com/profile/anikchand461">Codolio</a>
                 <a href="mailto:anikchand461@gmail.com">Email</a>
             </div>
             <p>© 2025 Anik Chand</p>
@@ -914,6 +1166,24 @@
         }
         
         window.addEventListener('scroll', requestScrollTick);
+
+        // Header scroll effect
+        const header = document.querySelector('.floating-navbar');
+        const heroSection = document.getElementById('home');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    header.classList.remove('scrolled');
+                } else {
+                    header.classList.add('scrolled');
+                }
+            });
+        }, { threshold: 0 });
+
+        if (heroSection) {
+            observer.observe(heroSection);
+        }
     </script>
 </body>
 </html>
