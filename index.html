@@ -952,7 +952,7 @@
 <section id="projects" class="section">
     <div class="container">
         <h2 class="section-title">Projects</h2>
-        <div class="projects-grid">
+        <div class="projects-grid" id="projectsGrid">
             <div class="project-card">
                 <h3>Fake Handwritten Digits Generation</h3>
                 <img src="gan.png" alt="AN MNIST Fake Digits Preview" class="project-image">
@@ -963,7 +963,7 @@
             </div>
             <div class="project-card">
                 <h3>Movie Recommender System</h3>
-                <img src="movie.jpg" alt="Report-Connect Preview" class="project-image">
+                <img src="movie.jpg" alt="Report-Connect Paeview" class="project-image">
                 <p>A Streamlit web app that recommends movies using TMDB data. It applies NLP and machine learning to suggest films similar to your favorites.</p>
                 <div class="project-links">
                     <a href="https://tmdb-movie-recommender-ptqbdcxa8svjufamz8zm2k.streamlit.app" target="_blank"><i class="fa-solid fa-link"></i></a>
@@ -1033,6 +1033,7 @@
                 </div>
             </div>
         </div>
+        <button id="showMoreBtn" class="btn" style="display:block; margin:2rem auto 0 auto;">Show More</button>
     </div>
 </section>
 
@@ -1082,6 +1083,11 @@
     <div class="container">
         <h2 class="section-title">Blogs</h2>
         <div class="blogs-grid">
+            <div class="blog-card">
+                <img src="auc-roc.jpg" alt="AUC ROC" class="blog-image">
+                <h3>The Curve That Judges Your ML Model</h3>
+                <a href="https://dev.to/anikchand461/understanding-the-auc-roc-curve-in-machine-learning-with-python-code-3nlc" target="_blank" class="blog-link">Read on DEV</a>
+            </div>
             <div class="blog-card">
                 <img src="sentiment-analysis.png" alt="Hangman Blog" class="blog-image">
                 <h3>Sentiment Analysis, the Classical Way — No Deep Learning</h3>
@@ -1257,6 +1263,36 @@
         if (heroSection) {
             observer.observe(heroSection);
         }
+
+    // Show More Projects functionality
+    document.addEventListener('DOMContentLoaded', function () {
+        const projectsGrid = document.getElementById('projectsGrid');
+        const showMoreBtn = document.getElementById('showMoreBtn');
+        // If you just added the id, update your HTML to use id="projectsGrid" for the grid div
+        const projectCards = projectsGrid ? projectsGrid.querySelectorAll('.project-card') : [];
+        const initialCount = 6;
+
+        // Hide all projects after the 6th
+        projectCards.forEach((card, idx) => {
+            if (idx >= initialCount) card.style.display = 'none';
+        });
+
+        showMoreBtn.addEventListener('click', function () {
+            const isExpanded = showMoreBtn.dataset.expanded === 'true';
+            if (!isExpanded) {
+                projectCards.forEach(card => card.style.display = '');
+                showMoreBtn.textContent = 'Show Less';
+                showMoreBtn.dataset.expanded = 'true';
+            } else {
+                projectCards.forEach((card, idx) => {
+                    card.style.display = idx < initialCount ? '' : 'none';
+                });
+                showMoreBtn.textContent = 'Show More';
+                showMoreBtn.dataset.expanded = 'false';
+                document.getElementById('projects').scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    });
     </script>
 </body>
 </html>
