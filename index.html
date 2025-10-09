@@ -1082,7 +1082,12 @@
 <section id="blogs" class="section">
     <div class="container">
         <h2 class="section-title">Blogs</h2>
-        <div class="blogs-grid">
+        <div class="blogs-grid" id="blogsGrid">
+            <div class="blog-card">
+                <img src="banner-trans.png" alt="transformer" class="blog-image">
+                <h3>How Google Translate & ChatGPT Work: The Transformer, Unboxed</h3>
+                <a href="https://dev.to/anikchand461/how-google-translate-chatgpt-work-the-transformer-unboxed-3el" target="_blank" class="blog-link">Read on DEV</a>
+            </div>
             <div class="blog-card">
                 <img src="gan-blog.png" alt="gan" class="blog-image">
                 <h3>A Beginner's GAN Adventure with Digits</h3>
@@ -1114,8 +1119,10 @@
                 <a href="https://dev.to/anikchand461/crafting-fun-with-code-my-journey-building-the-hangman-game-11ih" target="_blank" class="blog-link">Read on DEV</a>
             </div>
         </div>
+        <button id="showMoreBlogsBtn" class="btn" style="display:block; margin:2rem auto 0 auto;">Show More</button>
     </div>
 </section>
+
 
     <footer id="contact">
         <div class="container">
@@ -1295,6 +1302,34 @@
                 showMoreBtn.textContent = 'Show More';
                 showMoreBtn.dataset.expanded = 'false';
                 document.getElementById('projects').scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    });
+    // Show More Blogs functionality
+    document.addEventListener('DOMContentLoaded', function () {
+        const blogsGrid = document.getElementById('blogsGrid');
+        const showMoreBlogsBtn = document.getElementById('showMoreBlogsBtn');
+        const blogCards = blogsGrid ? blogsGrid.querySelectorAll('.blog-card') : [];
+        const initialBlogCount = 6;
+
+        // Hide all blogs after the 4th
+        blogCards.forEach((card, idx) => {
+            if (idx >= initialBlogCount) card.style.display = 'none';
+        });
+
+        showMoreBlogsBtn.addEventListener('click', function () {
+            const isExpanded = showMoreBlogsBtn.dataset.expanded === 'true';
+            if (!isExpanded) {
+                blogCards.forEach(card => card.style.display = '');
+                showMoreBlogsBtn.textContent = 'Show Less';
+                showMoreBlogsBtn.dataset.expanded = 'true';
+            } else {
+                blogCards.forEach((card, idx) => {
+                    card.style.display = idx < initialBlogCount ? '' : 'none';
+                });
+                showMoreBlogsBtn.textContent = 'Show More';
+                showMoreBlogsBtn.dataset.expanded = 'false';
+                document.getElementById('blogs').scrollIntoView({ behavior: 'smooth' });
             }
         });
     });
